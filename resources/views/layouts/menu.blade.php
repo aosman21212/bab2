@@ -114,18 +114,6 @@
     </a>
 </li> -->
 
-<!-- <li class="nav-item">
-    <a href="{{ route('clientdatareports.index') }}"
-       class="nav-link {{ Request::is('clientdatareports*') ? 'active' : '' }}">
-        <p>Clientdatareports</p>
-    </a>
-</li> -->
-<!-- <li class="nav-item">
-    <a href="{{ route('clientdatareports.index') }}"
-       class="nav-link {{ Request::is('clientdatareports*') ? 'active' : '' }}">
-        <p>Clientdatareports</p>
-    </a>
-</li> -->
 
 
 
