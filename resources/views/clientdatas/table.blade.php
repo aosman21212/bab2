@@ -72,11 +72,11 @@
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </li>
-                                            <li>
+                                            <!-- <li>
                                                 <a href="{{ route('clientdatas.edit', [$clientdata->id]) }}" class="edit">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                            </li>
+                                            </li> -->
                                             <li>
                                                 <a href="#" class="remove" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $clientdata->id }}').submit();">
                                                     <i class="fas fa-trash-alt"></i>

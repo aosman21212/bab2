@@ -100,11 +100,11 @@
                                         <i class="fas fa-eye"></i>
                                     </a>
                                 </li>
-                                <!-- <li>
+                                <li>
                                     <a href="{{ route('productservices.edit', [$productservice->id]) }}" class="edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                </li> -->
+                                </li>
                                 <li>
                                     <a href="#" class="remove" onclick="event.preventDefault(); 
                                         if(confirm('Are you sure you want to delete this product/service?')) {
