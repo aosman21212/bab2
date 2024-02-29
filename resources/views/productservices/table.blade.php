@@ -30,11 +30,11 @@
                             Recurring Period
                         </div>
                     </th>
-                    <th>
+                    <!-- <th>
                         <div class="userDatatable-title">
                             Added By
                         </div>
-                    </th>
+                    </th> -->
                  
                     <th>
                         <div class="userDatatable-title">
@@ -79,11 +79,11 @@
                             {{ $productservice->recurringPeriod }}
                         </div>
                     </td>
-                    <td>
+                    <!-- <td>
                         <div class="userDatatable-content">
                             {{ $productservice->addedBy }}
                         </div>
-                    </td>
+                    </td> -->
                 
                     <td>
                         <div class="userDatatable-content">
