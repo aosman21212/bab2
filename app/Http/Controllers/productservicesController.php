@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Database\QueryException; // Import QueryException
 
 use App\Http\Requests\CreateproductservicesRequest;
 use App\Http\Requests\UpdateproductservicesRequest;
@@ -10,9 +9,11 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use App\Models\productservices;
 use App\Models\clients;
 use App\Models\vendors;
+
+use App\Models\ServiceType;
+
 class productservicesController extends AppBaseController
 {
     /** @var productservicesRepository $productservicesRepository*/
@@ -33,7 +34,6 @@ class productservicesController extends AppBaseController
     public function index(Request $request)
     {
         $productservices = $this->productservicesRepository->all();
-        $productservices = productservices::paginate(10); // Assuming you want 10 items per page
 
         return view('productservices.index')
             ->with('productservices', $productservices);
@@ -46,11 +46,14 @@ class productservicesController extends AppBaseController
      */
     public function create()
     {
-        $clients = clients::all(); // Adjusted model name
-        $venders = vendors::all(); // Adjusted model name
-
-        return view('productservices.create' ,compact('clients','venders'));
+        $clients = clients::all();
+        $venders = Vendors::all(); // Fetch all vendors
+        // Corrected variable name
+        $serviceTypes = ServiceType::pluck('TypeName', 'id'); // Retrieve service types from the database
+    
+        return view('productservices.create', compact('clients', 'venders', 'serviceTypes')); // Adjusted variable name
     }
+    
 
     /**
      * Store a newly created productservices in storage.
@@ -106,12 +109,13 @@ class productservicesController extends AppBaseController
 
             return redirect(route('productservices.index'));
         }
- 
-        $clients = clients::all(); // Add this line to retrieve clients
-        $venders = vendors::all(); // Adjusted model name
 
-    
-        return view('productservices.edit' ,compact( 'clients', 'venders'))->with('productservices', $productservices);
+        $clients = clients::all(); // Add this line to retrieve clients
+    $venders = vendors::all(); // Adjusted model name
+    $serviceTypes = ServiceType::pluck('TypeName', 'id'); // Retrieve service types from the database
+
+    return view('productservices.edit' ,compact('productservices', 'clients', 'venders', 'serviceTypes'));
+
     }
 
     /**
@@ -150,21 +154,18 @@ class productservicesController extends AppBaseController
      */
     public function destroy($id)
     {
-        try {
-            $productservices = $this->productservicesRepository->find($id);
-    
-            if (empty($productservices)) {
-                Flash::error('Productservices not found');
-                return redirect(route('productservices.index'));
-            }
-    
-            $this->productservicesRepository->delete($id);
-    
-            Flash::success('Productservices deleted successfully.');
-        } catch (QueryException $e) {
-            Flash::error('Cannot delete productservices. This productservices is associated with other data.');
+        $productservices = $this->productservicesRepository->find($id);
+
+        if (empty($productservices)) {
+            Flash::error('Productservices not found');
+
+            return redirect(route('productservices.index'));
         }
-    
+
+        $this->productservicesRepository->delete($id);
+
+        Flash::success('Productservices deleted successfully.');
+
         return redirect(route('productservices.index'));
     }
 }

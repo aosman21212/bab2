@@ -87,17 +87,24 @@
                                     </a>
                                 </li>
                                 <li>
-                                    @if ($client->productServices->isNotEmpty())
-                                        <!-- <span class="remove-btn disabled"><i class="fas fa-trash-alt"></i></span>
-                                        <span class="text-danger ml-1">Cannot delete</span> -->
-                                    @else
-                                        <a href="#" class="remove-btn" data-id="{{ $client->id }}"><i class="fas fa-trash-alt"></i></a>
-                                        <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST" id="delete-form-{{ $client->id }}" style="display: none;">
-                                            @csrf
-                                            @method('DELETE')
-                                        </form>
-                                    @endif
-                                </li>
+    <a href="#" class="remove" onclick="event.preventDefault(); 
+        if(confirm('Are you sure you want to delete this client?')) {
+            var clientId = {{ $client->id }};
+            var hasRelationships = checkRelationships(clientId);
+            if(!hasRelationships) {
+                document.getElementById('delete-form-' + clientId).submit();
+            } else {
+                alert('This client cannot be deleted because it has associated relationships.');
+            }
+        }">
+        <i class="fas fa-trash-alt"></i>
+    </a>
+    <form action="{{ route('clients.destroy', [$client->id]) }}" method="POST" id="delete-form-{{ $client->id }}" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
+</li>
+
                             </ul>
                         </div>
                     </td>
@@ -111,3 +118,14 @@
         <div>{{ $clients->links() }}</div>
     </div>
 </div>
+
+
+
+<script>
+    function checkRelationships(clientId) {
+        // Perform your logic to check if there are any relationships associated with the client
+        // You may need to make an AJAX request to the server to check this
+        // For demonstration purposes, let's assume this function returns true if there are relationships, false otherwise
+        return true; // Change this to your actual logic
+    }
+</script>

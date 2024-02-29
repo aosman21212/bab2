@@ -2,31 +2,32 @@
 
 namespace App\Repositories;
 
-use App\Models\productservices;
+use App\Models\clientssss;
 use App\Repositories\BaseRepository;
 
 /**
- * Class productservicesRepository
+ * Class clientssssRepository
  * @package App\Repositories
- * @version February 28, 2024, 6:21 pm UTC
+ * @version February 28, 2024, 11:54 pm UTC
 */
 
-class productservicesRepository extends BaseRepository
+class clientssssRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'productServiceName',
-        'initiatedQuantity',
-        'recurringFees',
-        'additionalFees',
-        'recurringPeriod',
+        'clientName',
+        'clientLogo',
+        'contactName',
+        'mobileNo',
+        'email',
+        'babAcctManagerId',
+        'orderDate',
+        'startDate',
+        'bill_to',
         'addedBy',
-        'clientId',
-        'productServiceStatus',
-        'vendorId',
-        'ServiceTypeId'
+        'clientStatus'
     ];
 
     /**
@@ -44,6 +45,6 @@ class productservicesRepository extends BaseRepository
      **/
     public function model()
     {
-        return productservices::class;
+        return clientssss::class;
     }
 }

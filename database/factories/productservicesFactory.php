@@ -24,16 +24,16 @@ class productservicesFactory extends Factory
         return [
             'productServiceName' => $this->faker->word,
         'initiatedQuantity' => $this->faker->randomDigitNotNull,
-        'recurringFees' => $this->faker->randomDigitNotNull,
-        'additionalFees' => $this->faker->randomDigitNotNull,
+        'recurringFees' => $this->faker->word,
+        'additionalFees' => $this->faker->word,
         'recurringPeriod' => $this->faker->word,
         'addedBy' => $this->faker->word,
-        'addedDate' => $this->faker->date('Y-m-d H:i:s'),
         'clientId' => $this->faker->word,
         'productServiceStatus' => $this->faker->word,
         'vendorId' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
-        'updated_at' => $this->faker->date('Y-m-d H:i:s')
+        'updated_at' => $this->faker->date('Y-m-d H:i:s'),
+        'ServiceTypeId' => $this->faker->randomDigitNotNull
         ];
     }
 }

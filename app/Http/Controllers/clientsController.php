@@ -165,27 +165,50 @@ class clientsController extends AppBaseController
      * @return Response
      */
    
+    //  public function destroy($id)
+    //  {
+    //      try {
+    //          $clients = $this->clientsRepository->find($id);
+     
+    //          if (empty($clients)) {
+    //              Flash::error('Client not found.');
+    //              return redirect(route('clients.index'));
+    //          }
+     
+    //          // Delete associated file
+    //          if ($clients->clientLogo) {
+    //              Storage::disk('public')->delete($clients->clientLogo);
+    //          }
+     
+    //          $this->clientsRepository->delete($id);
+     
+    //          Flash::success('Client deleted successfully.');
+    //      } catch (QueryException $e) {
+    //          Flash::error('Cannot delete client. This client is associated with other data.');
+    //          \Log::error('Error deleting client: ' . $e->getMessage());
+    //      } catch (\Exception $e) {
+    //          Flash::error('An error occurred while deleting the client.');
+    //          \Log::error('Exception deleting client: ' . $e->getMessage());
+    //      }
+     
+    //      return redirect(route('clients.index'));
+    //  }
+
+
+     
     public function destroy($id)
     {
-        try {
-            $clients = $this->clientsRepository->find($id);
+        $clients = $this->clientsRepository->find($id);
 
-            if (empty($clients)) {
-                Flash::error('Clients not found');
-                return redirect(route('clients.index'));
-            }
+        if (empty($clients)) {
+            Flash::error('Clients not found');
 
-            // Delete associated file
-            if ($clients->clientLogo) {
-                Storage::disk('public')->delete($clients->clientLogo);
-            }
-
-            $this->clientsRepository->delete($id);
-
-            Flash::success('Clients deleted successfully.');
-        } catch (QueryException $e) {
-            Flash::error('Cannot delete client. This client is associated with other data.');
+            return redirect(route('clients.index'));
         }
+
+        $this->clientsRepository->delete($id);
+
+        Flash::success('Clientssss deleted successfully.');
 
         return redirect(route('clients.index'));
     }

@@ -8,6 +8,7 @@ use App\Models\vendors;
 use App\Repositories\vendorsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+
 use Flash;
 use Response;
 use Illuminate\Support\Facades\Storage;
@@ -176,24 +177,21 @@ public function update($id, UpdatevendorsRequest $request)
      *
      * @return Response
      */
+ 
     public function destroy($id)
     {
         $vendors = $this->vendorsRepository->find($id);
-    
+
         if (empty($vendors)) {
-            flash()->error('Vendors not found');
+            Flash::error('vendors not found');
+
             return redirect(route('vendors.index'));
         }
-    
-        if ($vendors->orders()->exists()) {
-            flash()->error('Cannot delete vendor because it has associated orders.');
-            return redirect(route('vendors.index'));
-        }
-    
+
         $this->vendorsRepository->delete($id);
-    
-        flash()->success('Vendors deleted successfully.');
-    
+
+        Flash::success('vendors deleted successfully.');
+
         return redirect(route('vendors.index'));
     }
     

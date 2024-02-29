@@ -35,6 +35,15 @@
                 Client Services
             </a>
         </li>
+
+        <li>
+            <a href="{{ route('serviceTypes.index') }}" class="nav-link {{ Request::is('serviceTypes*') ? 'active' : '' }}">
+            Service Types
+                    </a>
+        </li>
+
+   
+
         @endif
 
         @if (Auth::user()->hasRole('User_client'))
@@ -117,5 +126,7 @@
         <p>Clientdatareports</p>
     </a>
 </li> -->
+
+
 
 

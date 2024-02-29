@@ -22,7 +22,7 @@
                                     href="{{ route('vendordatas.index') }}">
                         
 
-<i class="la la-plus"></i> back</a>
+ <i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

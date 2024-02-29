@@ -1,6 +1,9 @@
 
 
 
+
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -10,7 +13,9 @@
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">Editing    Client Services Datas
+                                <h4 class="text-capitalize breadcrumb-title">Edit                  Client Services
+ Data
+
 </h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
@@ -35,7 +40,7 @@
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
                                     href="{{ route('productservices.index') }}">
-                                            <i class="la la-plus"></i> Back</a>
+                                           <i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,5 +81,6 @@
 </div>
  
 @endsection
+
 
 

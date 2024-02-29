@@ -1,84 +1,51 @@
 <table class="table table-bordered">
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('productServiceName', 'name:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->productServiceName }}</p>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('initiatedQuantity', 'Initiated quantity:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->initiatedQuantity }}</p>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('recurringFees', 'Recurring fees:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->recurringFees }}</p>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('additionalFees', 'Additional fees:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->additionalFees }}</p>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('recurringPeriod', 'Recurring period:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->recurringPeriod }}</p>
-        </td>
-    </tr>
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('addedBy', 'Addedby:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->addedby->name }}</p>
-        </td>
-    </tr>
-
-  
-
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('clientId', 'Client anme:') !!}
-        </td>
-        <td>
-            <p>{{  $productservices->clientid->clientName }}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('vendorId', 'Vendor name :') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->vendorid->vendorName }}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="col-sm-4">
-            {!! Form::label('productServiceStatus', 'status:') !!}
-        </td>
-        <td>
-            <p>{{ $productservices->productServiceStatus }}</p>
-        </td>
-    </tr>
-
+    <tbody>
+        <tr>
+            <th>                Client Services name</th>
+            <td>{{ $productservices->productServiceName }}</td>
+        </tr>
+        <tr>
+            <th>Vendor name </th>
+            <td>{{ $productservices->vendorid->vendorName }}</td>
+        </tr>
+        <tr>
+            <th>Client name</th>
+            <td>{{$productservices->clientid->clientName}}</td>
+            
+        </tr>
+        <tr>
+    <th>Service type</th>
+    <td>{{ $productservices->servicetypeid->TypeName }}</td>
+</tr>
+        <tr>
+            <th>Initiatedquantity</th>
+            <td>{{ $productservices->initiatedQuantity }}</td>
+        </tr>
+        <tr>
+            <th>Recurringfees</th>
+            <td>{{ $productservices->recurringFees }}</td>
+        </tr>
+        <tr>
+            <th>Additionalfees</th>
+            <td>{{ $productservices->additionalFees }}</td>
+        </tr>
+        <tr>
+            <th>Recurringperiod</th>
+            <td>{{ $productservices->recurringPeriod }}</td>
+        </tr>
+        <tr>
+            <th>Added by</th>
+            <td>{{ $productservices->addedby->name}}</td>
+        </tr>
+      
+        <tr>
+            <th>Productservicestatus</th>
+            <td>{{ $productservices->productServiceStatus }}</td>
+        </tr>
     
+   
+
+    </tbody>
 </table>
+
+

@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class productservices
  * @package App\Models
- * @version February 1, 2024, 9:11 pm UTC
+ * @version February 28, 2024, 6:21 pm UTC
  *
+ * @property \App\Models\Servicetype $servicetypeid
  * @property \App\Models\User $addedby
- * @property \App\Models\Client $clientid
- * @property \App\Models\Vendor $vendorid
+ * @property \App\Models\Clients $clientid
+ * @property \App\Models\Vendors $vendorid
  * @property \Illuminate\Database\Eloquent\Collection $clientData
  * @property \Illuminate\Database\Eloquent\Collection $vendorData
  * @property string $productServiceName
@@ -22,10 +23,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property number $additionalFees
  * @property string $recurringPeriod
  * @property integer $addedBy
- * @property string|\Carbon\Carbon $addedDate
  * @property integer $clientId
  * @property string $productServiceStatus
  * @property integer $vendorId
+ * @property integer $ServiceTypeId
  */
 class productservices extends Model
 {
@@ -49,7 +50,8 @@ class productservices extends Model
         'addedBy',
         'clientId',
         'productServiceStatus',
-        'vendorId'
+        'vendorId',
+        'ServiceTypeId'
     ];
 
     /**
@@ -61,13 +63,14 @@ class productservices extends Model
         'id' => 'integer',
         'productServiceName' => 'string',
         'initiatedQuantity' => 'integer',
-        'recurringFees' => 'float',
-        'additionalFees' => 'float',
+        'recurringFees' => 'decimal:3',
+        'additionalFees' => 'decimal:3',
         'recurringPeriod' => 'string',
         'addedBy' => 'integer',
         'clientId' => 'integer',
         'productServiceStatus' => 'string',
-        'vendorId' => 'integer'
+        'vendorId' => 'integer',
+        'ServiceTypeId' => 'integer'
     ];
 
     /**
@@ -76,18 +79,27 @@ class productservices extends Model
      * @var array
      */
     public static $rules = [
-        'productServiceName' => 'required|string|max:255',
-        'initiatedQuantity' => 'required|string',
-        'recurringFees' => 'required|string',
-        'additionalFees' => 'required|string',
+        'productServiceName' => 'required|string|max:191',
+        'initiatedQuantity' => 'required|integer',
+        'recurringFees' => 'required|numeric',
+        'additionalFees' => 'required|numeric',
         'recurringPeriod' => 'required|string',
         'addedBy' => 'required',
         'clientId' => 'required',
         'productServiceStatus' => 'required|string',
         'vendorId' => 'required',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'updated_at' => 'nullable',
+        'ServiceTypeId' => 'nullable|integer'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function servicetypeid()
+    {
+        return $this->belongsTo(\App\Models\Servicetype::class, 'ServiceTypeId');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -102,15 +114,15 @@ class productservices extends Model
      **/
     public function clientid()
     {
-        return $this->belongsTo(\App\Models\clients::class, 'clientId');
+        return $this->belongsTo(\App\Models\Clients::class, 'clientId');
     }
-  
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function vendorid()
     {
-        return $this->belongsTo(\App\Models\vendors::class, 'vendorId');
+        return $this->belongsTo(\App\Models\Vendors::class, 'vendorId');
     }
 
     /**

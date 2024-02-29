@@ -28,6 +28,8 @@ class CreateProductServicesTable extends Migration
             $table->enum('productServiceStatus', ['Active', 'Inactive']);
             $table->unsignedBigInteger('vendorId');
             $table->foreign('vendorId')->references('id')->on('vendors');
+            $table->unsignedBigInteger('servicetype');
+            $table->foreign('servicetype')->references('id')->on('ServiceType'); // Fixed reference to 'ServiceType' table
             $table->timestamps();
         });
     }

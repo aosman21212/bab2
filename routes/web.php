@@ -29,6 +29,7 @@ Route::resource('vendors', App\Http\Controllers\vendorsController::class);
 Route::get('/vendordatas/export', 'App\Http\Controllers\VendordataController@export')->name('vendordatas.export');
 
 Route::resource('clients', App\Http\Controllers\clientsController::class);
+Route::delete('/clients/{id}', 'ClientController@destroy')->name('clients.destroy');
 
 
 Route::resource('babacctmanagers', App\Http\Controllers\babacctmanagersController::class);
@@ -57,3 +58,8 @@ Route::resource('permissions', App\Http\Controllers\permissionsController::class
 
 
 Route::resource('clientdatareports', App\Http\Controllers\clientdatareportController::class);
+
+
+Route::resource('serviceTypes', App\Http\Controllers\ServiceTypeController::class);
+
+

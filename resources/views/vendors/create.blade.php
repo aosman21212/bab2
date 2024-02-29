@@ -32,7 +32,7 @@
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
                                     href="{{ route('vendors.index') }}">
-                                            <i class="la la-plus"></i> Back</a>
+                                           <i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

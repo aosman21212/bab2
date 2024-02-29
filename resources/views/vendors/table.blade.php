@@ -60,6 +60,7 @@
             <li><a href="{{ route('vendors.edit', [$vendor->id]) }}" class="edit"><i class="fas fa-edit"></i></a></li>
             <li>
                 @if ($vendor->productServices->isNotEmpty())
+                    <!-- <span class="disabled"><i class="fas fa-trash-alt"></i></span> -->
                 @else
                     <a href="#" class="remove-btn" onclick="event.preventDefault(); if(confirm('Are you sure?')) { document.getElementById('delete-form-{{ $vendor->id }}').submit(); }"><i class="fas fa-trash-alt"></i></a>
                     <form action="{{ route('vendors.destroy', [$vendor->id]) }}" method="POST" id="delete-form-{{ $vendor->id }}" style="display: none;">
@@ -68,6 +69,10 @@
                     </form>
                 @endif
             </li>
+        </ul>
+    </div>
+</td>
+
         </ul>
     </div>
 </td>

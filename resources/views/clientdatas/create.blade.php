@@ -24,7 +24,7 @@
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
                                     href="{{ route('clientdatas.index') }}">
-                                            <i class="la la-plus"></i> back</a>
+                                           <i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>

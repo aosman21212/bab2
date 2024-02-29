@@ -1,6 +1,10 @@
 
 
-                        @extends('layouts.app')
+
+
+
+
+@extends('layouts.app')
 
 @section('content')
 
@@ -9,7 +13,7 @@
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">Editing Vendors Datas
+                                <h4 class="text-capitalize breadcrumb-title">Adding serviceTypes Datas
 </h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
@@ -33,7 +37,7 @@
                                   
                                     <div class="action-btn">
                                     <a class="btn btn-primary float-right"
-                                    href="{{ route('vendors.index') }}">
+                                    href="{{ route('serviceTypes.index') }}">
                                            <i class="fa fa-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
@@ -55,12 +59,12 @@
 
                                         <div class="card-body py-md-30">
                                             <div class="horizontal-form">
-                                            {!! Form::model($vendors, ['route' => ['vendors.update', $vendors->id],'method' => 'patch','enctype' => 'multipart/form-data']) !!}
-                                            @include('vendors.fields')
+                                            {!! Form::open(['route' => 'serviceTypes.store','enctype' => 'multipart/form-data']) !!}
+                                            @include('service_types.fields')
 
                                                     <div class="card-footer">
                     <div class="layout-button mt-0">
-                        <a href="{{ route('vendors.index') }}" class="btn btn-default btn-squared border-normal bg-normal px-10">Cancel</a>
+                        <a href="{{ route('serviceTypes.index') }}" class="btn btn-default btn-squared border-normal bg-normal px-10">Cancel</a>
                         <button type="submit" class="btn btn-primary btn-default btn-squared px-20">Save</button>
                     </div>
                 </div>
