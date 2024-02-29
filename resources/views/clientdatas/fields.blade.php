@@ -199,6 +199,8 @@
         }
 
         document.getElementById('additionalQuantity').value = additionalQuantity;
+                // Calculate AdditionalCost when AdditionalQuantity or AdditionalFees changes
+
 
         // Calculate AdditionalCost when AdditionalQuantity or AdditionalFees changes
         calculateAdditionalCost();
