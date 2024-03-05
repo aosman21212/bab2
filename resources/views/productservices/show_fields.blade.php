@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <th>Client name</th>
-    <td>{{ $productservice->client->clientName }}</td>
+            <td>{{$productservices->clientid->clientName}}</td>
             
         </tr>
         <tr>
