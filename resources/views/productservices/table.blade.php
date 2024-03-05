@@ -9,7 +9,11 @@
 
                         </div>
                     </th>
-                  
+                    <th>
+                        <div class="userDatatable-title">
+                        Client name
+                                            </div>
+                    </th>
                     <th>
                         <div class="userDatatable-title">
                         Initiated Qty
