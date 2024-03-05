@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *
  * @property \App\Models\Servicetype $servicetypeid
  * @property \App\Models\User $addedby
- * @property \App\Models\Clients $clientid
+ * @property \App\Models\clients $clientid
  * @property \App\Models\Vendors $vendorid
  * @property \Illuminate\Database\Eloquent\Collection $clientData
  * @property \Illuminate\Database\Eloquent\Collection $vendorData
@@ -114,7 +114,7 @@ class productservices extends Model
      **/
     public function clientid()
     {
-        return $this->belongsTo(\App\Models\Clients::class, 'clientId');
+        return $this->belongsTo(\App\Models\clients::class, 'clientId');
     }
 
     /**
