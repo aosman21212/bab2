@@ -47,7 +47,7 @@ class productservicesController extends AppBaseController
     public function create()
     {
         $clients = clients::all();
-        $venders = Vendors::all(); // Fetch all vendors
+        $venders = vendors::all(); // Fetch all vendors
         // Corrected variable name
         $serviceTypes = ServiceType::pluck('TypeName', 'id'); // Retrieve service types from the database
     

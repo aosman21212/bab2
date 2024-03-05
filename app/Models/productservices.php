@@ -98,7 +98,7 @@ class productservices extends Model
      **/
     public function servicetypeid()
     {
-        return $this->belongsTo(\App\Models\Servicetype::class, 'ServiceTypeId');
+        return $this->belongsTo(\App\Models\ServiceType::class, 'ServiceTypeId');
     }
 
     /**
