@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \App\Models\Servicetype $servicetypeid
  * @property \App\Models\User $addedby
  * @property \App\Models\clients $clientid
- * @property \App\Models\Vendors $vendorid
+ * @property \App\Models\vendors $vendorid
  * @property \Illuminate\Database\Eloquent\Collection $clientData
  * @property \Illuminate\Database\Eloquent\Collection $vendorData
  * @property string $productServiceName
@@ -122,7 +122,7 @@ class productservices extends Model
      **/
     public function vendorid()
     {
-        return $this->belongsTo(\App\Models\Vendors::class, 'vendorId');
+        return $this->belongsTo(\App\Models\vendors::class, 'vendorId');
     }
 
     /**
