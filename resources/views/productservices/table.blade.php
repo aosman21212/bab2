@@ -63,10 +63,10 @@
                         </div>
                     </td>
                     <td>
-                        <div class="userDatatable-content">
-                        {{$productservices->clientid->clientName}}
-                        </div>
-                    </td>
+        <div class="userDatatable-content">
+            {{ $productservice->clientid->clientName }}
+        </div>
+    </td>
                     <td>
                         <div class="userDatatable-content">
                             {{ $productservice->initiatedQuantity }}

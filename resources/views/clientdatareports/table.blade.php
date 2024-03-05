@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $clientdatareport->clientid->clientName }}
+                      {{ $productservice->client->clientName }}
                         </div>
                     </td>
                     <td>
