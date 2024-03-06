@@ -79,10 +79,9 @@
                         <div class="signUp-admin-right signIn-admin-right  p-md-40 p-10">
                             <div class="signUp-topbar d-flex align-items-center justify-content-md-end justify-content-center mt-md-0 mb-md-0 mt-20 mb-1">
                                 <p class="mb-0">
-                                    Don't have an account?
+                                    Do you  have an account?
                                     <a href="{{ route('register') }}" class="text-center">
-                                    Sign up
-                                    </a>
+login                                     </a>
                                 </p>
                             </div><!-- End: .signUp-topbar  -->
                             <div class="row justify-content-center" style="margin-top: 150px;">
