@@ -80,7 +80,7 @@
                             <div class="signUp-topbar d-flex align-items-center justify-content-md-end justify-content-center mt-md-0 mb-md-0 mt-20 mb-1">
                                 <p class="mb-0">
                                     Do you  have an account?
-                                    <a href="{{ route('register') }}" class="text-center">
+                                    <a href="{{ route('login') }}" class="text-center">
 login                                     </a>
                                 </p>
                             </div><!-- End: .signUp-topbar  -->
