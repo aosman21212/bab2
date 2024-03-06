@@ -60,8 +60,8 @@
                     <div class="col-xl-4 col-lg-5 col-md-5 p-0">
                         <div class="signUP-admin-left signIn-admin-left position-relative">
                             <div class="signUP-overlay">
-                            <!-- <img class="svg signupTop" src="{{ asset('img/svg/signuptop.svg') }}" alt="img" />
-                                <img class="svg signupBottom" src="{{ asset('img/svg/signupbottom.svg') }}" alt="img" /> -->
+                            <img class="svg signupTop" src="{{ asset('img/svg/signuptop.svg') }}" alt="img" />
+                                <img class="svg signupBottom" src="{{ asset('img/svg/signupbottom.svg') }}" alt="img" />
                             </div><!-- End: .signUP-overlay  -->
                             <!-- <div class="signUP-admin-left__content">
                                 <div class="text-capitalize mb-md-30 mb-15 d-flex align-items-center justify-content-md-start justify-content-center">
@@ -71,7 +71,7 @@
                                 <h1> </h1>
                             </div>End: .signUP-admin-left__content  -->
                             <div class="signUP-admin-left__img">
-                            <!-- <img class="img-fluid svg" src="{{ asset('img/svg/signupIllustration.svg') }}" alt="img" /> -->
+                            <img class="img-fluid svg" src="{{ asset('img/svg/signupIllustration.svg') }}" alt="img" />
                             </div><!-- End: .signUP-admin-left__img  -->
                         </div><!-- End: .signUP-admin-left  -->
                     </div><!-- End: .col-xl-4  -->
