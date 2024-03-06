@@ -71,7 +71,7 @@
                                 <h1> </h1>
                             </div>End: .signUP-admin-left__content  -->
                             <div class="signUP-admin-left__img">
-                                <img class="img-fluid svg" src="img/svg/signupIllustration.svg" alt="img" />
+                            <img class="img-fluid svg" src="{{ asset('img/svg/signupIllustration.svg') }}" alt="img" />
                             </div><!-- End: .signUP-admin-left__img  -->
                         </div><!-- End: .signUP-admin-left  -->
                     </div><!-- End: .col-xl-4  -->
