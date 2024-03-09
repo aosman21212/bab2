@@ -5,19 +5,18 @@
                 <tr class="userDatatable-header">
                     <th>
                         <div class="userDatatable-title">
-                        Client Services
-
+                            Client Services
                         </div>
                     </th>
                     <th>
                         <div class="userDatatable-title">
-                        Client name
-                                            </div>
+                            Client name
+                        </div>
                     </th>
                     <th>
                         <div class="userDatatable-title">
-                        Initiated Qty
-                                            </div>
+                            Initiated Qty
+                        </div>
                     </th>
                     <th>
                         <div class="userDatatable-title">
@@ -39,14 +38,11 @@
                             Added By
                         </div>
                     </th> -->
-                 
                     <th>
                         <div class="userDatatable-title">
                             Product/Service Status
                         </div>
                     </th>
-                  
-                  
                     <th>
                         <div class="userDatatable-title">
                             Action
@@ -59,14 +55,14 @@
                 <tr>
                     <td>
                         <div class="userDatatable-content">
-                            {{ $productservice->productServiceName }}
+                            {{ $productservice->productservicename->name }}
                         </div>
                     </td>
                     <td>
-        <div class="userDatatable-content">
-            {{ $productservice->clientid->clientName }}
-        </div>
-    </td>
+                        <div class="userDatatable-content">
+                            {{ $productservice->clientid->clientName }}
+                        </div>
+                    </td>
                     <td>
                         <div class="userDatatable-content">
                             {{ $productservice->initiatedQuantity }}
@@ -92,14 +88,11 @@
                             {{ $productservice->addedBy }}
                         </div>
                     </td> -->
-                
                     <td>
                         <div class="userDatatable-content">
                             {{ $productservice->productServiceStatus }}
                         </div>
                     </td>
-                   
-                
                     <td>
                         <div class="userDatatable-content">
                             <ul class="orderDatatable_actions mb-0 d-flex flex-wrap float-right">
@@ -113,18 +106,21 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="remove" onclick="event.preventDefault(); 
-                                        if(confirm('Are you sure you want to delete this product/service?')) {
-                                            document.getElementById('delete-form-{{ $productservice->id }}').submit();
-                                        }">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                    <form action="{{ route('productservices.destroy', [$productservice->id]) }}" method="POST" id="delete-form-{{ $productservice->id }}" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                </li>
+                                <!-- Check if there are related records in client_data table -->
+                                @if(!$productservice->clientData()->exists())
+                                    <li>
+                                        <a href="#" class="remove" onclick="event.preventDefault(); 
+                                            if(confirm('Are you sure you want to delete this product/service?')) {
+                                                document.getElementById('delete-form-{{ $productservice->id }}').submit();
+                                            }">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <form action="{{ route('productservices.destroy', [$productservice->id]) }}" method="POST" id="delete-form-{{ $productservice->id }}" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </td>

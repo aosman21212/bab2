@@ -35,7 +35,13 @@
                 Client Services
             </a>
         </li>
-
+        
+        <li>
+            <a href="{{ route('products.index') }}"
+       class="nav-link {{ Request::is('products*') ? 'active' : '' }}">
+       Client Product
+       </a>      
+        </li>
         <li>
             <a href="{{ route('serviceTypes.index') }}" class="nav-link {{ Request::is('serviceTypes*') ? 'active' : '' }}">
             Service Types
@@ -113,6 +119,12 @@
         <p>Clientdatareports</p>
     </a>
 </li> -->
+
+
+
+
+
+
 
 
 

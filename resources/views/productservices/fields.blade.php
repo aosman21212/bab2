@@ -5,7 +5,7 @@
             {!! Form::label('productServiceName', 'Product Service Name:', ['class' => 'col-form-label']) !!}
         </div>
         <div class="col-sm-9">
-            {!! Form::text('productServiceName', null, ['class' => 'form-control', 'maxlength' => 191]) !!}
+            {!! Form::select('productServiceName', $productServices, null, ['class' => 'form-control', 'maxlength' => 191]) !!}
         </div>
     </div>
 </div>
@@ -43,10 +43,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 <div class="form-group mb-3">
     <div class="row">

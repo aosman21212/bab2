@@ -63,3 +63,6 @@ Route::resource('clientdatareports', App\Http\Controllers\clientdatareportContro
 Route::resource('serviceTypes', App\Http\Controllers\ServiceTypeController::class);
 
 
+
+
+Route::resource('products', App\Http\Controllers\ProductsController::class);

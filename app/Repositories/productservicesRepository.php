@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class productservicesRepository
  * @package App\Repositories
- * @version February 28, 2024, 6:21 pm UTC
+ * @version March 9, 2024, 4:37 pm UTC
 */
 
 class productservicesRepository extends BaseRepository
@@ -17,7 +17,6 @@ class productservicesRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'productServiceName',
         'initiatedQuantity',
         'recurringFees',
         'additionalFees',
@@ -26,7 +25,8 @@ class productservicesRepository extends BaseRepository
         'clientId',
         'productServiceStatus',
         'vendorId',
-        'ServiceTypeId'
+        'ServiceTypeId',
+        'productServiceName'
     ];
 
     /**

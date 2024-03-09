@@ -117,9 +117,12 @@ class clientdata extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function productserviceid()
-    {
-        return $this->belongsTo(\App\Models\productservices::class, 'productServiceId');
-    }
-    
+  /**
+ * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+ **/
+public function productserviceid()
+{
+    return $this->belongsTo(\App\Models\productservices::class, 'productServiceId')->select('id', 'productServiceName');
+}
+
 }

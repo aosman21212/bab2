@@ -51,18 +51,15 @@ class clientdataController extends AppBaseController
          $clients = clients::all();
          $prod = productservices::all();
      
-         // Fetch a specific productservice or the first one, depending on your requirements
-         $productService = productservices::first(); // You can modify this to fit your logic
-     
-         // Pass productServiceId to the view
-         $productServiceId = $productService->id ?? null;
-     
          // Fetch product services based on the first client initially
          $productServices = productservices::where('clientid', $clients->first()->id ?? null)->pluck('productServiceName', 'id');
- 
+     
          // Pass productServices to the view
-         return view('clientdatas.create', compact('clients', 'prod', 'productServiceId', 'productServices'));
+         return view('clientdatas.create', compact('clients', 'prod', 'productServices'));
      }
+     
+     
+
 
     /**
      * Store a newly created clientdata in storage.

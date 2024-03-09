@@ -2,7 +2,7 @@
     <tbody>
         <tr>
             <th>                Client Services name</th>
-            <td>{{ $productservices->productServiceName }}</td>
+            <td>{{ $productservices->productservicename->name }}</td>
         </tr>
         <tr>
             <th>Vendor name </th>
@@ -47,5 +47,3 @@
 
     </tbody>
 </table>
-
-

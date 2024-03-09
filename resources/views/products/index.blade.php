@@ -4,6 +4,8 @@
 
 
 
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -14,7 +16,7 @@
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">               Client Services
+                                <h4 class="text-capitalize breadcrumb-title">               Client product
  </h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
@@ -39,7 +41,7 @@
 
                                     <div class="action-btn">
  
-        <a class="btn btn-primary float-right" href="{{ route('productservices.create') }}">
+        <a class="btn btn-primary float-right" href="{{ route('products.create') }}">
             <i class="la la-plus"></i> Add New
         </a>
 
@@ -62,7 +64,7 @@
                             <div class="card-body p-0">
 
                                      
-                            @include('productservices.table')
+                            @include('products.table')
            
 
 
@@ -81,3 +83,4 @@
        
 
 @endsection
+

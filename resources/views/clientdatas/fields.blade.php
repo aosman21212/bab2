@@ -25,9 +25,11 @@
         </label>
     </div>
     <div class="col-sm-9">
-        {!! Form::select('productServiceId', [], null, ['class' => 'form-control', 'placeholder' => 'Select Client Services', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
+        {!! Form::select('productServiceId', $productServices->pluck('productServiceName', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Select Client Services', 'id' => 'productServiceId', 'onchange' => 'fetchInitiatedQuantity()']) !!}
     </div>
 </div>
+
+
 <div class="form-group row">
     <div class="col-sm-3 d-flex aling-items-center">
         <label for="element-text4" class="col-form-label color-dark fs-14 fw-500 align-center">
@@ -134,31 +136,29 @@
 
 <script>
     function fetchProductServices() {
-        var selectedClientId = document.getElementById('clientId').value;
+    var selectedClientId = document.getElementById('clientId').value;
 
-        // Fetch product services based on the selected clientId
-        var productServicesData = {!! json_encode($prod->groupBy('clientId')->map(function ($item) {
-            return $item->pluck('productServiceName', 'id', 'ServiceTypeId');
-        })) !!};
+    // Fetch product services based on the selected clientId
+    var productServicesData = {!! json_encode($prod->groupBy('clientId')->map(function ($item) {
+        return $item->pluck('productServiceName', 'id');
+    })) !!};
 
-        var productServices = productServicesData[selectedClientId] || {};
+    var productServices = productServicesData[selectedClientId] || {};
 
-        var selectProductService = document.getElementById('productServiceId');
-        selectProductService.innerHTML = ''; // Clear existing options
+    var selectProductService = document.getElementById('productServiceId');
+    selectProductService.innerHTML = ''; // Clear existing options
 
-        // Add new options based on the selected clientId
-        for (var id in productServices) {
-            var option = document.createElement('option');
-            option.value = id;
-            option.textContent = productServices[id];
-            selectProductService.appendChild(option);
-            // Also set data-service-type-id attribute for each option
-            option.setAttribute('data-service-type-id', productServices[id].ServiceTypeId);
-        }
-
-        // Trigger change event on productServiceId to fetch initiatedQuantity and additionalFees
-        selectProductService.dispatchEvent(new Event('change'));
+    // Add new options based on the selected clientId
+    for (var id in productServices) {
+        var option = document.createElement('option');
+        option.value = id;
+        option.textContent = productServices[id]; // Display productServiceName
+        selectProductService.appendChild(option);
     }
+
+    // Trigger change event on productServiceId to fetch initiatedQuantity and additionalFees
+    selectProductService.dispatchEvent(new Event('change'));
+}
 
     function fetchInitiatedQuantity() {
         var selectedClientId = document.getElementById('clientId').value;

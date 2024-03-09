@@ -22,8 +22,7 @@ class productservicesFactory extends Factory
     public function definition()
     {
         return [
-            'productServiceName' => $this->faker->word,
-        'initiatedQuantity' => $this->faker->randomDigitNotNull,
+            'initiatedQuantity' => $this->faker->randomDigitNotNull,
         'recurringFees' => $this->faker->word,
         'additionalFees' => $this->faker->word,
         'recurringPeriod' => $this->faker->word,
@@ -33,7 +32,8 @@ class productservicesFactory extends Factory
         'vendorId' => $this->faker->word,
         'created_at' => $this->faker->date('Y-m-d H:i:s'),
         'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-        'ServiceTypeId' => $this->faker->randomDigitNotNull
+        'ServiceTypeId' => $this->faker->randomDigitNotNull,
+        'productServiceName' => $this->faker->randomDigitNotNull
         ];
     }
 }

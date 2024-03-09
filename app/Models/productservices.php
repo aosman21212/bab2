@@ -9,15 +9,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class productservices
  * @package App\Models
- * @version February 28, 2024, 6:21 pm UTC
+ * @version March 9, 2024, 4:37 pm UTC
  *
+ * @property \App\Models\Products $productservicename
  * @property \App\Models\Servicetype $servicetypeid
  * @property \App\Models\User $addedby
  * @property \App\Models\clients $clientid
  * @property \App\Models\vendors $vendorid
  * @property \Illuminate\Database\Eloquent\Collection $clientData
  * @property \Illuminate\Database\Eloquent\Collection $vendorData
- * @property string $productServiceName
  * @property integer $initiatedQuantity
  * @property number $recurringFees
  * @property number $additionalFees
@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $productServiceStatus
  * @property integer $vendorId
  * @property integer $ServiceTypeId
+ * @property integer $productServiceName
  */
 class productservices extends Model
 {
@@ -42,7 +43,6 @@ class productservices extends Model
 
 
     public $fillable = [
-        'productServiceName',
         'initiatedQuantity',
         'recurringFees',
         'additionalFees',
@@ -51,7 +51,8 @@ class productservices extends Model
         'clientId',
         'productServiceStatus',
         'vendorId',
-        'ServiceTypeId'
+        'ServiceTypeId',
+        'productServiceName'
     ];
 
     /**
@@ -61,7 +62,6 @@ class productservices extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'productServiceName' => 'string',
         'initiatedQuantity' => 'integer',
         'recurringFees' => 'decimal:3',
         'additionalFees' => 'decimal:3',
@@ -70,7 +70,8 @@ class productservices extends Model
         'clientId' => 'integer',
         'productServiceStatus' => 'string',
         'vendorId' => 'integer',
-        'ServiceTypeId' => 'integer'
+        'ServiceTypeId' => 'integer',
+        'productServiceName' => 'integer'
     ];
 
     /**
@@ -79,7 +80,6 @@ class productservices extends Model
      * @var array
      */
     public static $rules = [
-        'productServiceName' => 'required|string|max:191',
         'initiatedQuantity' => 'required|integer',
         'recurringFees' => 'required|numeric',
         'additionalFees' => 'required|numeric',
@@ -90,15 +90,24 @@ class productservices extends Model
         'vendorId' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
-        'ServiceTypeId' => 'nullable|integer'
+        'ServiceTypeId' => 'nullable|integer',
+        'productServiceName' => 'nullable|integer'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function productservicename()
+    {
+        return $this->belongsTo(\App\Models\Products::class, 'productServiceName');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
     public function servicetypeid()
     {
-        return $this->belongsTo(\App\Models\ServiceType::class, 'ServiceTypeId');
+        return $this->belongsTo(\App\Models\Servicetype::class, 'ServiceTypeId');
     }
 
     /**

@@ -4,18 +4,22 @@
 
 
 
+
+
+
 @extends('layouts.app')
 
 @section('content')
-
 
 <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="shop-breadcrumb">
                         <div class="breadcrumb-main">
-                                <h4 class="text-capitalize breadcrumb-title">               Client Services
- </h4>
+                                <h4 class="text-capitalize breadcrumb-title">Edit                  Client Services
+ Data
+
+</h4>
                                 <div class="breadcrumb-action justify-content-center flex-wrap">
                                     <div class="action-btn">
 
@@ -34,16 +38,13 @@
                                                 <i class="la la-file-pdf"></i> PDF</a>
                                           
                                         </div>
-                                    </div>
-                               -->
-
+                                    </div> -->
+                                  
                                     <div class="action-btn">
- 
-        <a class="btn btn-primary float-right" href="{{ route('productservices.create') }}">
-            <i class="la la-plus"></i> Add New
-        </a>
-
-                                 
+                                    <a class="btn btn-primary float-right"
+                                    href="{{ route('products.index') }}">
+                                           <i class="fa fa-arrow-left"></i> Back</a>
+                                    </div>
                                 </div>
                             </div>
                     
@@ -53,31 +54,33 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                 <div class="col-lg-12 mb-30">
-            @include('flash::message')
 
-                        <div class="card">
-                           
-                            <div class="card-body p-0">
+<div class="card card-horizontal card-default card-md mb-4">
 
-                                     
-                            @include('productservices.table')
-           
+<div class="col-lg-12">
+                                    <div class="card card-horizontal card-default card-md mb-4">
+                                 
+                                        @include('adminlte-templates::common.errors')
 
+                                        <div class="card-body py-md-30">
+                                            <div class="horizontal-form">
+                                            {!! Form::model($products, ['route' => ['products.update', $products->id],'method' => 'patch','enctype' => 'multipart/form-data']) !!}
+                                            @include('products.fields')
 
-                            </div>
-                        </div>
+                                                    <div class="card-footer">
+                    <div class="layout-button mt-0">
+                        <a href="{{ route('products.index') }}" class="btn btn-default btn-squared border-normal bg-normal px-10">Cancel</a>
+                        <button type="submit" class="btn btn-primary btn-default btn-squared px-20">Save</button>
                     </div>
+                </div>
+                
+                {!! Form::close() !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ends: .card -->
 
-
-
-
-
-
-
-
-                    
-       
-
+                                </div>
+</div>
+ 
 @endsection

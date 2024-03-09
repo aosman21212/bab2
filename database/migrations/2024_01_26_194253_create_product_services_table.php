@@ -15,7 +15,8 @@ class CreateProductServicesTable extends Migration
     {
         Schema::create('product_services', function (Blueprint $table) {
             $table->id();
-            $table->string('productServiceName');
+            $table->unsignedBigInteger('productServiceName');
+            $table->foreign('productServiceName')->references('id')->on('products');            
             $table->integer('initiatedQuantity');
             $table->float('recurringFees');
             $table->float('additionalFees');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateproductservicesRequest;
 use App\Http\Requests\UpdateproductservicesRequest;
+use App\Models\Products;
 use App\Repositories\productservicesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -49,9 +50,9 @@ class productservicesController extends AppBaseController
         $clients = clients::all();
         $venders = vendors::all(); // Fetch all vendors
         // Corrected variable name
-        $serviceTypes = ServiceType::pluck('TypeName', 'id'); // Retrieve service types from the database
-    
-        return view('productservices.create', compact('clients', 'venders', 'serviceTypes')); // Adjusted variable name
+        $productServices= Products::pluck('name', 'id');
+        $serviceTypes =ServiceType ::pluck('TypeName', 'id'); // Retrieve service types from the database
+        return view('productservices.create', compact('clients', 'venders', 'serviceTypes','productServices')); // Adjusted variable name
     }
     
 
@@ -113,8 +114,9 @@ class productservicesController extends AppBaseController
         $clients = clients::all(); // Add this line to retrieve clients
     $venders = vendors::all(); // Adjusted model name
     $serviceTypes = ServiceType::pluck('TypeName', 'id'); // Retrieve service types from the database
+    $productServices= Products::pluck('name', 'id');
 
-    return view('productservices.edit' ,compact('productservices', 'clients', 'venders', 'serviceTypes'));
+    return view('productservices.edit' ,compact('productservices', 'clients', 'venders', 'serviceTypes','productServices'));
 
     }
 
